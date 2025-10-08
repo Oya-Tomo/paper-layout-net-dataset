@@ -118,6 +118,8 @@ def main(config: DatasetConfig = DatasetConfig()):
             for idx, image in enumerate(images):
                 page_pool.append((paper_hash, idx, image, images_usage[idx]))
 
+            os.remove(pdf_path)
+
             if len(page_pool) < config.batch_size:
                 continue
 
@@ -145,10 +147,8 @@ def main(config: DatasetConfig = DatasetConfig()):
                                 f"{class_id} {x_center} {y_center} {width} {height}\n"
                             )
 
-            os.remove(pdf_path)
-            del images
-            del images_predict
-            torch.cuda.empty_cache()
+                del images_predict
+                torch.cuda.empty_cache()
 
 
 if __name__ == "__main__":
