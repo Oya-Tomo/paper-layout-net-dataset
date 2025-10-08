@@ -7,6 +7,7 @@ def train():
     model.train(
         data=data_path, epochs=100, imgsz=640, batch=16, name="yolov12l-doclaynet-paper"
     )
+    model.save("yolov12l-doclaynet-paper.pt")
 
 
 if __name__ == "__main__":
