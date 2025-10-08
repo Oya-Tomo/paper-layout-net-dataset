@@ -28,7 +28,7 @@ def main():
     with open("dataset/data.yaml", "w+") as data_yaml:
         yaml.dump(
             {
-                "path": "./",
+                "path": "./dataset",
                 "train": "images/train",
                 "val": "images/val",
                 "test": "images/test",
