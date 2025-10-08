@@ -64,24 +64,46 @@ def main(config: DatasetConfig = DatasetConfig()):
     model = load_yolo_model()
 
     queries = [
-        "cat:cs.SC",
-        "cat:cs.AI",
-        "cat:cs.LG",
-        "cat:cs.DC",
-        "cat:cs.CL",
-        "cat:cs.SE",
-        "cat:cs.MA",
-        "cat:cs.CR",
-        "cat:cs.CE",
-        "cat:cs.CV",
-        "cat:cs.RO",
-        "cat:cs.CY",
-        "cat:cs.SD",
-        "cat:cs.HC",
-        "cat:cs.NI",
-        "cat:cs.SY",
-        "cat:cs.PL",
-        "cat:math.NA",
+        "cs.AI",
+        "cs.AR",
+        "cs.CC",
+        "cs.CE",
+        "cs.CG",
+        "cs.CL",
+        "cs.CR",
+        "cs.CV",
+        "cs.CY",
+        "cs.DB",
+        "cs.DC",
+        "cs.DL",
+        "cs.DM",
+        "cs.DS",
+        "cs.ET",
+        "cs.FL",
+        "cs.GL",
+        "cs.GR",
+        "cs.GT",
+        "cs.HC",
+        "cs.IR",
+        "cs.IT",
+        "cs.LG",
+        "cs.LO",
+        "cs.MA",
+        "cs.MM",
+        "cs.MS",
+        "cs.NA",
+        "cs.NE",
+        "cs.NI",
+        "cs.OH",
+        "cs.OS",
+        "cs.PF",
+        "cs.PL",
+        "cs.RO",
+        "cs.SC",
+        "cs.SD",
+        "cs.SE",
+        "cs.SI",
+        "cs.SY",
     ]
     id_list = None
     start = 0
@@ -152,4 +174,11 @@ def main(config: DatasetConfig = DatasetConfig()):
 
 
 if __name__ == "__main__":
-    main()
+    config = DatasetConfig(
+        dpi=150,
+        batch_size=15,
+        train_split=0.7,
+        val_split=0.15,
+        test_split=0.15,
+    )
+    main(config)
