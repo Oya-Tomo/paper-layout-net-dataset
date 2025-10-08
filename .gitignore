@@ -19,3 +19,6 @@ models/
 
 # PDF
 *.pdf
+
+# Zip files
+*.zip
