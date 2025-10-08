@@ -15,6 +15,8 @@ from model import load_yolo_model
 
 
 def main():
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+
     os.makedirs("dataset/images/train", exist_ok=True)
     os.makedirs("dataset/images/val", exist_ok=True)
     os.makedirs("dataset/images/test", exist_ok=True)
@@ -50,10 +52,29 @@ def main():
 
     model = load_yolo_model()
 
-    queries = ["cat:cs.CV"]
+    queries = [
+        "cat:cs.SC",
+        "cat:cs.AI",
+        "cat:cs.LG",
+        "cat:cs.DC",
+        "cat:cs.CL",
+        "cat:cs.SE",
+        "cat:cs.MA",
+        "cat:cs.CR",
+        "cat:cs.CE",
+        "cat:cs.CV",
+        "cat:cs.RO",
+        "cat:cs.CY",
+        "cat:cs.SD",
+        "cat:cs.HC",
+        "cat:cs.NI",
+        "cat:cs.SY",
+        "cat:cs.PL",
+        "cat:math.NA",
+    ]
     id_list = None
     start = 0
-    max_results = 10
+    max_results = 20
     for query in queries:
         papers = collect_arxiv_papers(
             search_query=query,
