@@ -1,6 +1,7 @@
 import os
 import random
 
+import torch
 import yaml
 from PIL import Image
 from ultralytics.data.annotator import auto_annotate
@@ -105,13 +106,13 @@ def main():
                 with open(f"dataset/labels/{images_usage[i]}/{image_id}.txt", "w") as f:
                     for result in results.boxes:
                         class_id = result.cls.item()
-                        print(result.xywhn.tolist())
                         x_center, y_center, width, height = result.xywhn[0].tolist()
                         f.write(f"{class_id} {x_center} {y_center} {width} {height}\n")
 
             os.remove(pdf_path)
             del images
             del images_predict
+            torch.cuda.empty_cache()
 
 
 if __name__ == "__main__":
