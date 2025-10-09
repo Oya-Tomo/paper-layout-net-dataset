@@ -45,6 +45,7 @@ def create_dataset_item(
     results: Results,
     remove_overlapping: bool = True,
     create_figure_caption_pairs: bool = True,
+    figure_caption_distance_threshold: int = 100,
 ):
     image_id = f"{hash}_{page}"
 
@@ -96,6 +97,8 @@ def create_dataset_item(
 
         for dist, fig_idx, cap_idx in figure_caption_dists:
             if fig_idx in used_figures_idx or cap_idx in used_captions_idx:
+                continue
+            if dist > figure_caption_distance_threshold:
                 continue
 
             used_figures_idx.add(fig_idx)
