@@ -188,7 +188,7 @@ def main(config: DatasetConfig = DatasetConfig()):
 
     model = load_yolo_model()
 
-    queries = [
+    categories = [
         "cs.AI",
         "cs.AR",
         "cs.CC",
@@ -229,10 +229,48 @@ def main(config: DatasetConfig = DatasetConfig()):
         "cs.SE",
         "cs.SI",
         "cs.SY",
+        "physics.acc-ph",
+        "physics.ao-ph",
+        "physics.app-ph",
+        "physics.atm-clus",
+        "physics.atom-ph",
+        "physics.bio-ph",
+        "physics.chem-ph",
+        "physics.class-ph",
+        "physics.comp-ph",
+        "physics.data-an",
+        "physics.ed-ph",
+        "physics.flu-dyn",
+        "physics.gen-ph",
+        "physics.geo-ph",
+        "physics.hist-ph",
+        "physics.ins-det",
+        "physics.med-ph",
+        "physics.optics",
+        "physics.plasm-ph",
+        "physics.pop-ph",
+        "physics.soc-ph",
+        "physics.space-ph",
+        "q-bio.BM",
+        "q-bio.CB",
+        "q-bio.GN",
+        "q-bio.MN",
+        "q-bio.NC",
+        "q-bio.OT",
+        "q-bio.PE",
+        "q-bio.QM",
+        "q-bio.SC",
+        "q-bio.TO",
+        "eess.AS",
+        "eess.IV",
+        "eess.SP",
+        "eess.SY",
     ]
+
+    queries = [f"cat:{cat}" for cat in categories]
     id_list = None
     start = 0
-    max_results = 20
+    max_results = 15
 
     page_pool: list[
         tuple[
